@@ -1,10 +1,15 @@
 
 const calc = {
-  
+  displayMain: document.querySelector('.num-main'),
   readInput: function(e) {
     let key = e.target;
-    console.log(key.dataset.key)
+    if (key.dataset.key[0] === 'K') {
+      calc.printNum(key.dataset.key[1]);
+    }
   },
+  printNum: function(num) {
+    this.displayMain.textContent += num;
+  }
 }
 
 let keys = document.querySelectorAll('.key')
