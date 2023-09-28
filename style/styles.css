@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;500&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+h1, p {
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.title {
+  padding: 0.5rem 0;
+  flex: 0;
+}
+
+.container {
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.calc-body {
+  width: 100%;
+  height: 600px;
+  max-width: 360px;
+  gap: 1rem;
+  background-color: #191717;
+  border-radius: 2rem;
+}
+
+.display {
+  width: 100%;
+  height: 100px;
+  padding: 0.9rem;
+  align-items: end;
+  justify-content: space-around;
+  background-color: #CCC8AA;
+  border-radius: 1rem;
+  overflow: hidden;
+  font-family: 'Teko', sans-serif;
+}
+
+.num-result {
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.num-main {
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 2rem;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.key-container {
+  padding: 1rem;
+  flex: 1;
+  justify-content: space-between;
+  background-color: #252322;
+  border-radius: 1rem;
+  gap: 4px;
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  background-color: #D6CC99;
+  font-size: 30px;
+  font-weight: 700;
+  border-radius: 1rem;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  flex: 1;
+  gap: 4px;
+}
+
+.col {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  flex: 1;
+  gap: 4px;
+}
+
+/* Text Colors*/
+.txt-white {
+  color: #F1EFEF;
+}
+/* Background Colors*/
+.bg-body {
+  background-color: #F1EFEF;
+}
+
+.bg-op {
+  background-color: #B2533E;
+  color: #F1EFEF;
+}
+
+.bg-green {
+  background-color: #445D48;
+  color: #F1EFEF;
+}
+
+.bg-blue {
+  background-color: #4F709C;
+  color: #F1EFEF;
+}
+
+/* Utilities */
+.d-flex {
+  display: flex;
+}
+
+.f-col {
+  flex-flow: column;
+}
+
+.ff-col-w{
+  flex-flow: column wrap;
+}
+
+.ff-row-w{
+  flex-flow: row wrap;
+}
+
+.p-1{
+  padding: 1rem;
+}
+
+.f-3{
+  flex: 3;
+}
+
+.f-2{
+  flex: 2;
+}
