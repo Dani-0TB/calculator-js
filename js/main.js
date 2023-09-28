@@ -74,7 +74,7 @@ const calc = {
     this.result = String(number);
   },
   updateDisplay: function() {
-    let main = document.querySelector('.num-main');
+    let main = document.querySelector('.num-input');
     let result = document.querySelector('.num-result');
     main.textContent = this.numInput;
     result.textContent = this.result;
