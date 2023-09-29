@@ -1,0 +1,15 @@
+{
+  "name": "calculator-js-main",
+  "version": "1.0.0",
+  "description": "This is the final exercise for the fundamentals track on The Odin Project.",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
