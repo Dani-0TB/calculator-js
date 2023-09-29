@@ -1,7 +1,8 @@
-const DEBUG = false;
+const DEBUG = true;
 
 const calc = {
   numInput: '',
+  buffer:'',
   operator: '',
   result: '',
   lastOp: '',
@@ -11,33 +12,49 @@ const calc = {
   },
   readInput: function(e) {
     let key = e.target.dataset.key;
-    
+    // filter user input
+
+    if (this.lastOp == 'enter' && Number(key)){
+      this.numInput = '';
+      this.operator = '';
+    }
+
     if (Number(key)) {
       this.numInput += key;
       return;
     }
 
     if (key === 'cls') {
+      log('current operation', key);
       this.clearAll();
       return;
     }
 
     if (key === 'enter'){
-      if (this.operator) {
+      log('current operation', key);
+      if (this.operator && this.numInput && this.result) {
         this.operate(this.operator);
-        return;
       }
+      return;
     }
-    
+
+    // Handle operation
+    // ignore input if calculator is clear
+
+    // Operator is empty
     if (this.operator === '') {
+      log('current operation', key);
       this.operator = key;
       this.result = this.numInput;
       this.numInput = '';
       return;
     }
 
+
+
   },
   operate: function(operator) {
+    this.buffer
     this.setOperands();
     switch (operator) {
       case 'add':
@@ -73,6 +90,9 @@ const calc = {
   setResult: function(number) {
     this.result = String(number);
   },
+  setLastOp: function(op) {
+    this.lastOp = op;
+  },
   updateDisplay: function() {
     let main = document.querySelector('.num-input');
     let result = document.querySelector('.num-result');
@@ -99,6 +119,7 @@ keys.forEach((key) => {
   key.addEventListener('click', (e) => {
     calc.readInput(e)
     calc.updateDisplay()
+    calc.setLastOp(key.dataset.key)
   });
   
 });
