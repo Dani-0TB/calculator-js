@@ -13,33 +13,22 @@ const calc = {
   readInput: function(e) {
     let key = e.target.dataset.key;
     // filter user input
-
-    if (this.lastOp == 'enter' && Number(key)){
-      this.numInput = '';
-      this.operator = '';
-    }
-
-    if (Number(key)) {
-      this.numInput += key;
-      return;
-    }
-
+    
     if (key === 'cls') {
       log('current operation', key);
       this.clearAll();
       return;
     }
 
-    if (key === 'enter'){
-      log('current operation', key);
-      if (this.operator && this.numInput && this.result) {
-        this.operate(this.operator);
-      }
-      return;
+    if (this.lastOp == 'enter'){
+      this.buffer = this.numInput;
+      this.numInput = '';
     }
 
-    // Handle operation
-    // ignore input if calculator is clear
+    if (Number(key)) {
+      this.numInput += key;
+      return;
+    }
 
     // Operator is empty
     if (this.operator === '') {
@@ -50,7 +39,15 @@ const calc = {
       return;
     }
 
+    if (key !== this.operator && key !== 'enter'){
+      this.operator = key;
+      this.numInput = '';
+      return;
+    }
 
+    if (this.operator && this.numInput && this.result) {
+      this.operate(this.operator);
+    }
 
   },
   operate: function(operator) {
@@ -104,11 +101,14 @@ const calc = {
     this.operator = '';
     this.result = '';
     this.lastOp = '';
+    this.buffer = '';
   },
   logMe: function() {
+    console.clear()
     log('numInput:', this.numInput);
     log('operator:', this.operator);
     log('result:', this.result);
+    log('buffer:', this.buffer);
     log('lastOp:', this.lastOp);
   }
 }
@@ -120,6 +120,7 @@ keys.forEach((key) => {
     calc.readInput(e)
     calc.updateDisplay()
     calc.setLastOp(key.dataset.key)
+    calc.logMe()
   });
   
 });
